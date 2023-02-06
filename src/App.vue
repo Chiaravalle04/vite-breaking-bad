@@ -3,7 +3,6 @@ import axios from 'axios';
 import { store } from './store.js';
 import AppHeader from './components/AppHeader.vue';
 import AppMain from './components/AppMain.vue'
-import AppFooter from './components/AppFooter.vue'
 
 export default {
   name: 'App',
@@ -11,7 +10,6 @@ export default {
   components: {
     AppHeader,
     AppMain,
-    AppFooter
   },
 
   data() {
@@ -24,7 +22,7 @@ export default {
     axios 
       .get('https://db.ygoprodeck.com/api/v7/cardinfo.php')
       .then((response) => {
-        this.store.results = response.data.data;
+        this.store.results = response.data.data.slice(0, 100);
         console.log(this.store.results)
       })
   }
@@ -37,8 +35,6 @@ export default {
   <AppHeader/>
   
   <AppMain/>
-  
-  <AppFooter/>
   
 </template>
 
