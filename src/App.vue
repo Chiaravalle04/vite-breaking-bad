@@ -27,4 +27,5 @@ export default {
 
 <style lang="scss">
 @import '../src/styles/main.scss';
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;700&display=swap');
 </style>
