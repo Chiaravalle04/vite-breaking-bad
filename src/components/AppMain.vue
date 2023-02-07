@@ -1,4 +1,5 @@
 <script>
+import axios from 'axios';
 import AppCards from './AppCards.vue'
 import { store } from '../store.js';
 
@@ -16,6 +17,16 @@ export default {
       logo: 'https://toyworldmag.co.uk/wp-content/uploads/2022/03/YU-GI-OH-LOGO-copy-1024x418.png',
     }
   },
+  created() {
+    axios 
+      .get('https://db.ygoprodeck.com/api/v7/archetypes.php')
+      .then((response) => {
+
+        // console.log('Arc', response.data[0].archetype_name)
+        this.store.archetypes = response.data
+        console.log('arc',this.store.archetypes)
+      })
+  }
 }
 </script>
 
@@ -29,9 +40,9 @@ export default {
 
                 <select name="card-type" id="card-type">
                     <option value="all">All</option>
-                    <option value="monster">Carte Mostro</option>
-                    <option value="magic">Carte Magia</option>
-                    <option value="trap">Carte Trappola</option>
+                    <option :value="store.archetypes[index].archetype_name" v-for="cardsType, index in store.archetypes">
+                        {{ store.archetypes[index].archetype_name }}
+                    </option>
                 </select>
 
                 <div class="found-cards">
