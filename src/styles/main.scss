@@ -1,9 +1,25 @@
 /*
 
+Scrollbar
+
+*/
+::-webkit-scrollbar {
+    width: 13px;
+}
+
+::-webkit-scrollbar-track {
+background: $mainColor;
+}
+
+::-webkit-scrollbar-thumb {
+background: $secondColor;
+}
+
+/*
+
 Regole Generali
 
 */
-
 .general-container {
     width: 80%;
     margin: 0 auto;

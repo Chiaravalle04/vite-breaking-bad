@@ -19,12 +19,7 @@ export default {
   },
 
   created() {
-    axios 
-      .get('https://db.ygoprodeck.com/api/v7/cardinfo.php')
-      .then((response) => {
-        this.store.results = response.data.data.slice(0, 100);
-        console.log(this.store.results)
-      })
+    
   }
 
 }

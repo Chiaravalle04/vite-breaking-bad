@@ -18,6 +18,8 @@ export default {
 
         <h4>{{ feature.type }}</h4>
 
+        <h4>{{ feature.archetype }}</h4>
+
     </div>
   
 </template>
